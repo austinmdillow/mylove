@@ -1,5 +1,3 @@
-Object = require "lib.classic"
-
 Coord = Object:extend()
 
 function Coord:new(x, y, dir)
