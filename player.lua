@@ -1,7 +1,3 @@
-require "lib.classic"
-require "coord"
-Object = require "lib.classic"
-
 Player = Object:extend()
 
 function Player:new(x_start, y_start)
