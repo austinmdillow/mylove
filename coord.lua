@@ -1,13 +1,12 @@
 Coord = Object:extend()
 
-function Coord:new(x, y, dir)
+function Coord:new(x, y, t)
       if x == nil or y == nil then
         error("invalid x, y for Coord setup")
       end
       self.x = x or 0
       self.y = y or 0
-      self.dir = dir or math.pi / 2
-      print("init coord", self.x)
+      self.t = t or math.pi / 2
 end
 
 function Coord:angleToPoint(x, y)
@@ -27,23 +26,35 @@ function Coord:distanceToCoord(coord)
     return math.sqrt((coord.x - self.x)^2 + (coord.y - self.y)^2)
 end
 
-function Coord:moveAlongDir(dist)
-    return self.x + dist * math.cos(self.dir), self.y + dist * math.sin(self.dir)
+function Coord:moveAlongt(dist)
+    return self.x + dist * math.cos(self.t), self.y + dist * math.sin(self.t)
 end
 
 function Coord:moveForward(dist)
-    self.x = self.x + dist * math.cos(self.dir)
-    self.y = self.y + dist * math.sin(self.dir)
+    self.x = self.x + dist * math.cos(self.t)
+    self.y = self.y + dist * math.sin(self.t)
 end
 
 -- positive rotation is clockwise
 function Coord:rotate(rotation)
-    self.dir = self.dir + rotation
+    self.t = self.t + rotation
 end
 
 function Coord:setXY(new_x, new_y)
     self.x = new_x
     self.y = new_y
+end
+
+function Coord:getX()
+    return self.x
+end
+
+function Coord:getY()
+    return self.y
+end
+
+function Coord:getT()
+    return self.t
 end
 
 function Coord:normalVectorToCoord(coord)
