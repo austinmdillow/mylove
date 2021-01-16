@@ -10,7 +10,11 @@ function Coord:new(x, y, t)
 end
 
 function Coord:angleToPoint(x, y)
-    return math.atan2(y-self.y, x-self.x) * 180 / math.pi
+    return math.atan2(y-self.y, x-self.x)
+end
+
+function Coord:angleToCoord(coord)
+    return math.atan2(coord.y-self.y, coord.x-self.x)
 end
 
 function Coord:polarToCartesianOffset(r, theta)
@@ -38,6 +42,11 @@ end
 -- positive rotation is clockwise
 function Coord:rotate(rotation)
     self.t = self.t + rotation
+    if self.t > math.pi then
+        self.t = self.t - 2 * math.pi
+    elseif self.t < -math.pi then
+        self.t = self.t + 2 * math.pi
+    end
 end
 
 function Coord:setXY(new_x, new_y)

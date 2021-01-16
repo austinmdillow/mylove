@@ -11,14 +11,12 @@ function Entity:new(x_start, y_start, t_start)
 
   self.max_speed = 100
   self.current_speed = 0
+  self.roation_speed = math.pi / 2
   self.max_health = 100
   self.current_health = self.max_health
   self.size = 2
   self.color = {1,0,0}
-  self.radius = 10
-  
-  self.roation_speed = 3
-  
+
   self.id = nil
 end
 
@@ -55,6 +53,10 @@ end
 
 function Entity:getXY()
   return self.coord:getX(), self.coord:getY()
+end
+
+function Entity:getXYT()
+  return self.coord:getX(), self.coord:getY(), self.coord:getY()
 end
 
 function Entity:setXY(x, y)

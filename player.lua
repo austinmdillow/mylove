@@ -1,4 +1,4 @@
-Player = Entity:extend()
+Player = Ship:extend()
 
 function Player:new(x_start, y_start)
   Player.super.new(self, x_start, y_start, dir_start)
@@ -33,12 +33,8 @@ function Player:draw()
     love.graphics.setColor(1,1,1)
 end
 
-function Player:setColorRandom()
-	self.color = {love.math.random(), love.math.random(), love.math.random()}
-end
-
 function Player:keypressed(key)
   if key == " " then
-    print("space is down")
+    return self:fire()
   end
 end
