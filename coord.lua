@@ -1,9 +1,6 @@
 Coord = Object:extend()
 
 function Coord:new(x, y, t)
-      if x == nil or y == nil then
-        error("invalid x, y for Coord setup")
-      end
       self.x = x or 0
       self.y = y or 0
       self.t = t or math.pi / 2
