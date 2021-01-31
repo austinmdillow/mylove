@@ -6,7 +6,7 @@ COLORS = {
     lime = {0, 1, 0},
     green = {0, .5, 0},
     olive = {.5, .5, 0},
-    yellow = = {1, 1, 0},
+    yellow = {1, 1, 0},
     cyan = {0,1,1},
     magenta = {1, 0, 1},
     blue = {0,0,1},
