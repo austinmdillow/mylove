@@ -11,7 +11,7 @@ function Entity:new(x_start, y_start, t_start)
 
   self.max_speed = 100
   self.current_speed = 0
-  self.roation_speed = math.pi / 2
+  self.rotation_speed = math.pi / 2
   self.max_health = 100
   self.current_health = self.max_health
   self.size = 2
@@ -79,6 +79,12 @@ end
 
 function Entity:getColor()
 	return self.color
+end
+
+function Entity:setColor(color_input)
+  self.color[1] = color_input[1]
+  self.color[2] = color_input[2]
+  self.color[3] = color_input[3]
 end
 
 function Entity:keypressed(key)
