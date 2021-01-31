@@ -7,9 +7,6 @@ COLORS = {
   periwinkle = {127/255, 0, 255/255}
 }
 
-for idx, color in pairs(COLORS) do
-	color = protectTable(color)
-end
 
 function protectTable(tbl)
     return setmetatable({}, {
@@ -19,6 +16,10 @@ function protectTable(tbl)
                    tostring(key) .. " to " .. tostring(value), 2)
         end
     })
+end
+
+for idx, color in pairs(COLORS) do
+	color = protectTable(color)
 end
 
 COLORS = protectTable(COLORS)
