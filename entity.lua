@@ -69,6 +69,10 @@ function Entity:setXYT(x, y, t)
     self.coord.t = t
 end
 
+function Entity:rotate(rotation)
+  self.coord:rotate(rotation)
+end
+
 function Entity:setColorRandom()
 	self.color = {love.math.random(), love.math.random(), love.math.random()}
 end
