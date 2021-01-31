@@ -7,6 +7,10 @@ COLORS = {
   periwinkle = {127/255, 0, 255/255}
 }
 
+for idx, color in pairs(COLORS) do
+	color = protectTable(color)
+end
+
 function protectTable(tbl)
     return setmetatable({}, {
         __index = tbl,
